@@ -589,112 +589,207 @@
 
                       #Leetcode=19 
     #Brute TC=O(2N)=O(n)       SC= O(1)
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.next = None
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
 
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
 
-    def remove_nth_node(self,n):
-        length=0
-        temp=self.head
-        while temp is not None:
-            length+=1
-            temp=temp.next
+#     def remove_nth_node(self,n):
+#         length=0
+#         temp=self.head
+#         while temp is not None:
+#             length+=1
+#             temp=temp.next
 
-        if length==n:
-            new_head=self.head.next
+#         if length==n:
+#             new_head=self.head.next
             
-            print(new_head)
-        position_to_stop=length-n
-        temp=self.head
-        count=1
-        while count<position_to_stop:
-            temp=temp.next
-            count+=1
-        temp.next=temp.next.next
-        #to print complete linkedlist
-    def display(self):
-            temp = self.head
-            while temp:
-                print(temp.val, end=" ")
-                temp = temp.next
-            print()   
-l = LinkedList()
+#             print(new_head)
+#         position_to_stop=length-n
+#         temp=self.head
+#         count=1
+#         while count<position_to_stop:
+#             temp=temp.next
+#             count+=1
+#         temp.next=temp.next.next
+#         #to print complete linkedlist
+#     def display(self):
+#             temp = self.head
+#             while temp:
+#                 print(temp.val, end=" ")
+#                 temp = temp.next
+#             print()   
+# l = LinkedList()
 
-l.head = Node(1)
-l.head.next = Node(3)
-l.head.next.next = Node(4)
-l.head.next.next.next = Node(7)
-l.head.next.next.next.next = Node(1)
-l.head.next.next.next.next.next = Node(2)
-l.head.next.next.next.next.next.next = Node(6)
-print("Original:")
-l.display()
+# l.head = Node(1)
+# l.head.next = Node(3)
+# l.head.next.next = Node(4)
+# l.head.next.next.next = Node(7)
+# l.head.next.next.next.next = Node(1)
+# l.head.next.next.next.next.next = Node(2)
+# l.head.next.next.next.next.next.next = Node(6)
+# print("Original:")
+# l.display()
 
-l.remove_nth_node(2)
+# l.remove_nth_node(2)
 
-print("After deletion:")
-l.display()
+# print("After deletion:")
+# l.display()
 
-#Optimal tc=O(N)  Sc=O(1)
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.next = None
+# #Optimal tc=O(N)  Sc=O(1)
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
 
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
 
-    def remove_nth_node(self,n):
-        slow=self.head
-        fast=self.head
-        # Move fast n steps ahead
-        for _ in range(n):
-            fast=fast.next
-             # Remove head
-        if fast==None:
-                return self.head.next
-        # Move both pointers
-        while fast.next is not None:
-                slow=slow.next
-                fast=fast.next
-              # Delete nth node from end   
-        slow.next=slow.next.next
-        return self.head
+#     def remove_nth_node(self,n):
+#         slow=self.head
+#         fast=self.head
+#         # Move fast n steps ahead
+#         for _ in range(n):
+#             fast=fast.next
+#              # Remove head
+#         if fast==None:
+#                 return self.head.next
+#         # Move both pointers
+#         while fast.next is not None:
+#                 slow=slow.next
+#                 fast=fast.next
+#               # Delete nth node from end   
+#         slow.next=slow.next.next
+#         return self.head
         
             
-        #to print complete linkedlist
-    def display(self):
-            temp = self.head
-            while temp:
-                print(temp.val, end=" ")
-                temp = temp.next
-            print()   
+#         #to print complete linkedlist
+#     def display(self):
+#             temp = self.head
+#             while temp:
+#                 print(temp.val, end=" ")
+#                 temp = temp.next
+#             print()   
+# l = LinkedList()
+
+# l.head = Node(1)
+# l.head.next = Node(3)
+# l.head.next.next = Node(4)
+# l.head.next.next.next = Node(7)
+# l.head.next.next.next.next = Node(1)
+# l.head.next.next.next.next.next = Node(2)
+# l.head.next.next.next.next.next.next = Node(6)
+# print("Original:")
+# l.display()
+
+# l.remove_nth_node(2)
+
+# print("After deletion:")
+# l.display()
+
+
+#Palindrome or not
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
+
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+#     def palindrome(self):
+#         temp=self.head
+#         stack=[]
+#         while temp!=None:
+#             stack.append(temp.val)
+#             temp=temp.next
+#         temp = self.head
+#         while temp!=None:
+#             if temp.val != stack.pop():
+#                 print("Not Palindrome")
+#                 return
+#             temp=temp.next
+        
+#         print("palindrome")
+# l = LinkedList()
+
+# l.head = Node(1)
+# l.head.next = Node(3)
+# l.head.next.next = Node(4)
+# l.head.next.next.next = Node(3)
+# l.head.next.next.next.next = Node(2)
+# # l.head.next.next.next.next.next = Node(1)
+# # l.head.next.next.next.next.next.next = Node(6)
+# l.palindrome()
+
+
+
+
+    
+# 
+
+    
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def isPalindrome(self):
+        slow = self.head
+        fast = self.head
+
+        # Find middle
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+
+        # Reverse second half
+        prev = None
+        temp = slow
+
+        while temp is not None:
+            next_node = temp.next
+            temp.next = prev
+            prev = temp
+            temp = next_node
+
+        # Compare
+        first = self.head
+        second = prev
+
+        while second is not None:
+            if first.val != second.val:
+                return False
+
+            first = first.next
+            second = second.next
+
+        return True
+
+
 l = LinkedList()
 
 l.head = Node(1)
 l.head.next = Node(3)
 l.head.next.next = Node(4)
-l.head.next.next.next = Node(7)
+l.head.next.next.next = Node(3)
 l.head.next.next.next.next = Node(1)
-l.head.next.next.next.next.next = Node(2)
-l.head.next.next.next.next.next.next = Node(6)
-print("Original:")
-l.display()
-
-l.remove_nth_node(2)
-
-print("After deletion:")
-l.display()
 
 
-
-    
-    
+if l.isPalindrome():
+    print("Palindrome")
+else:
+    print("Not Palindrome")

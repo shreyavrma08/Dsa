@@ -737,6 +737,251 @@
 # 
 
     
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
+
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+
+#     def isPalindrome(self):
+#         slow = self.head
+#         fast = self.head
+
+#         # Find middle
+#         while fast is not None and fast.next is not None:
+#             slow = slow.next
+#             fast = fast.next.next
+
+#         # Reverse second half
+#         prev = None
+#         temp = slow
+
+#         while temp is not None:
+#             next_node = temp.next
+#             temp.next = prev
+#             prev = temp
+#             temp = next_node
+
+#         # Compare
+#         first = self.head
+#         second = prev
+
+#         while second is not None:
+#             if first.val != second.val:
+#                 return False
+
+#             first = first.next
+#             second = second.next
+
+#         return True
+
+
+# l = LinkedList()
+
+# l.head = Node(1)
+# l.head.next = Node(3)
+# l.head.next.next = Node(4)
+# l.head.next.next.next = Node(3)
+# l.head.next.next.next.next = Node(1)
+
+
+# if l.isPalindrome():
+#     print("Palindrome")
+# else:
+#     print("Not Palindrome")
+
+
+#                     #Leetcode=160   
+# #Brute          Time Complexity	O(N + M)  Space Complexity	O(N)
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
+
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+
+#     # Traverse to store all the nodes
+#     def intersection_point(self, head1, head2):
+
+#         map = {}
+
+#         temp = head1
+
+#         while temp != None:
+#             map[temp] = 1
+#             temp = temp.next
+
+#         temp = head2
+
+#         while temp != None:
+
+#             if temp in map:
+#                 return temp
+
+#             temp = temp.next
+
+#         return None
+
+
+# # -----------------------
+# # Linked List 1
+# # -----------------------
+
+# l1 = LinkedList()
+
+# l1.head = Node(3)
+# l1.head.next = Node(1)
+# l1.head.next.next = Node(4)
+# l1.head.next.next.next = Node(6)
+# l1.head.next.next.next.next = Node(2)
+
+
+# # -----------------------
+# # Linked List 2
+# # -----------------------
+
+# l2 = LinkedList()
+
+# l2.head = Node(1)
+# l2.head.next = Node(2)
+# l2.head.next.next = Node(4)
+# l2.head.next.next.next = Node(5)
+# l2.head.next.next.next.next = Node(2)
+
+
+# # -----------------------
+# # Create common nodes
+# # -----------------------
+
+# common1 = Node(7)
+# common2 = Node(8)
+# common3 = Node(9)
+
+# common1.next = common2
+# common2.next = common3
+
+
+# # Connect both lists to SAME node
+
+# l1.head.next.next.next.next.next = common1
+# l2.head.next.next.next.next.next = common1
+
+
+# # -----------------------
+# # Find intersection
+# # -----------------------
+
+# result = l1.intersection_point(l1.head, l2.head)
+
+
+# if result is not None:
+#     print("Intersection point:", result.val)
+# else:
+#     print("No intersection")
+
+
+#Better         Time Complexity	O(N + M)  Space Complexity	O(1)
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
+
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+
+#     def intersection_point(self,head1,head2):
+
+    
+#         t1=head1
+#         n1=0
+#         while t1 != None:
+#             n1+=1
+#             t1=t1.next
+
+#         t2=head2
+#         n2=0
+#         while t2 != None:
+#             n2+=1
+#             t2=t2.next
+#         if (n1 < n2):
+#             return self.collisionPoint(head1,head2,n2-n1)
+#         else:
+#             return self.collisionPoint(head2,head1,n1-n2)
+#     def collisionPoint(self,t1,t2,d):
+#         while d>0:
+#             d-=1
+#             t2=t2.next
+#         while t1 != t2 :
+#             t1=t1.next
+#             t2=t2.next
+#         return t1  
+# # Linked List 1
+# # -----------------------
+
+# l1 = LinkedList()
+
+# l1.head = Node(3)
+# l1.head.next = Node(1)
+# l1.head.next.next = Node(4)
+# l1.head.next.next.next = Node(6)
+# l1.head.next.next.next.next = Node(2)
+
+
+# # -----------------------
+# # Linked List 2
+# # -----------------------
+
+# l2 = LinkedList()
+
+# l2.head = Node(1)
+# l2.head.next = Node(2)
+# l2.head.next.next = Node(4)
+# l2.head.next.next.next = Node(5)
+# l2.head.next.next.next.next = Node(2)
+
+
+# # -----------------------
+# # Create common nodes
+# # -----------------------
+
+# common1 = Node(7)
+# common2 = Node(8)
+# common3 = Node(9)
+
+# common1.next = common2
+# common2.next = common3
+
+
+# # Connect both lists to SAME node
+
+# l1.head.next.next.next.next.next = common1
+# l2.head.next.next.next.next.next = common1
+
+
+# # -----------------------
+# # Find intersection
+# # -----------------------
+
+# result = l1.intersection_point(l1.head, l2.head)
+
+
+# if result is not None:
+#     print("collisionPoint:", result.val)
+# else:
+#     print("No collision point")
+
+
+
+#optimal solution   TC=O(n+m)  Sc=O(1)
 class Node:
     def __init__(self, val):
         self.val = val
@@ -747,49 +992,69 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def isPalindrome(self):
-        slow = self.head
-        fast = self.head
+    def intersection_point(self, head1, head2):
 
-        # Find middle
-        while fast is not None and fast.next is not None:
-            slow = slow.next
-            fast = fast.next.next
+        if head1 is None or head2 is None:
+            return None
 
-        # Reverse second half
-        prev = None
-        temp = slow
+        t1 = head1
+        t2 = head2
 
-        while temp is not None:
-            next_node = temp.next
-            temp.next = prev
-            prev = temp
-            temp = next_node
+        while t1 != t2:
 
-        # Compare
-        first = self.head
-        second = prev
+            if t1 is None:
+                t1 = head2
+            else:
+                t1 = t1.next
 
-        while second is not None:
-            if first.val != second.val:
-                return False
+            if t2 is None:
+                t2 = head1
+            else:
+                t2 = t2.next
 
-            first = first.next
-            second = second.next
-
-        return True
+        return t1
 
 
-l = LinkedList()
+l1 = LinkedList()
 
-l.head = Node(1)
-l.head.next = Node(3)
-l.head.next.next = Node(4)
-l.head.next.next.next = Node(3)
-l.head.next.next.next.next = Node(1)
+l1.head = Node(3)
+l1.head.next = Node(1)
+l1.head.next.next = Node(4)
+l1.head.next.next.next = Node(6)
+l1.head.next.next.next.next = Node(2)
 
 
-if l.isPalindrome():
-    print("Palindrome")
+l2 = LinkedList()
+
+l2.head = Node(1)
+l2.head.next = Node(2)
+l2.head.next.next = Node(4)
+l2.head.next.next.next = Node(5)
+l2.head.next.next.next.next = Node(2)
+
+
+# Create common nodes
+
+common1 = Node(7)
+common2 = Node(8)
+common3 = Node(9)
+
+common1.next = common2
+common2.next = common3
+
+
+# Connect both lists to same nodes
+
+l1.head.next.next.next.next.next = common1
+l2.head.next.next.next.next.next = common1
+
+
+# Find intersection
+
+result = l1.intersection_point(l1.head, l2.head)
+
+
+if result is not None:
+    print("collisionPoint:", result.val)
 else:
-    print("Not Palindrome")
+    print("No collision point")

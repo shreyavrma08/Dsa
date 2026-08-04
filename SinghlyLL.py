@@ -982,79 +982,83 @@
 
 
 #optimal solution   TC=O(n+m)  Sc=O(1)
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.next = None
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
 
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
 
-    def intersection_point(self, head1, head2):
+#     def intersection_point(self, head1, head2):
 
-        if head1 is None or head2 is None:
-            return None
+#         if head1 is None or head2 is None:
+#             return None
 
-        t1 = head1
-        t2 = head2
+#         t1 = head1
+#         t2 = head2
 
-        while t1 != t2:
+#         while t1 != t2:
 
-            if t1 is None:
-                t1 = head2
-            else:
-                t1 = t1.next
+#             if t1 is None:
+#                 t1 = head2
+#             else:
+#                 t1 = t1.next
 
-            if t2 is None:
-                t2 = head1
-            else:
-                t2 = t2.next
+#             if t2 is None:
+#                 t2 = head1
+#             else:
+#                 t2 = t2.next
 
-        return t1
-
-
-l1 = LinkedList()
-
-l1.head = Node(3)
-l1.head.next = Node(1)
-l1.head.next.next = Node(4)
-l1.head.next.next.next = Node(6)
-l1.head.next.next.next.next = Node(2)
+#         return t1
 
 
-l2 = LinkedList()
+# l1 = LinkedList()
 
-l2.head = Node(1)
-l2.head.next = Node(2)
-l2.head.next.next = Node(4)
-l2.head.next.next.next = Node(5)
-l2.head.next.next.next.next = Node(2)
-
-
-# Create common nodes
-
-common1 = Node(7)
-common2 = Node(8)
-common3 = Node(9)
-
-common1.next = common2
-common2.next = common3
+# l1.head = Node(3)
+# l1.head.next = Node(1)
+# l1.head.next.next = Node(4)
+# l1.head.next.next.next = Node(6)
+# l1.head.next.next.next.next = Node(2)
 
 
-# Connect both lists to same nodes
+# l2 = LinkedList()
 
-l1.head.next.next.next.next.next = common1
-l2.head.next.next.next.next.next = common1
-
-
-# Find intersection
-
-result = l1.intersection_point(l1.head, l2.head)
+# l2.head = Node(1)
+# l2.head.next = Node(2)
+# l2.head.next.next = Node(4)
+# l2.head.next.next.next = Node(5)
+# l2.head.next.next.next.next = Node(2)
 
 
-if result is not None:
-    print("collisionPoint:", result.val)
-else:
-    print("No collision point")
+# # Create common nodes
+
+# common1 = Node(7)
+# common2 = Node(8)
+# common3 = Node(9)
+
+# common1.next = common2
+# common2.next = common3
+
+
+# # Connect both lists to same nodes
+
+# l1.head.next.next.next.next.next = common1
+# l2.head.next.next.next.next.next = common1
+
+
+# # Find intersection
+
+# result = l1.intersection_point(l1.head, l2.head)
+
+
+# if result is not None:
+#     print("collisionPoint:", result.val)
+# else:
+#     print("No collision point")
+
+
+#leetcode2095  
+

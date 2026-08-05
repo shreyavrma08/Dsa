@@ -53,60 +53,130 @@
 
 
 #Optimal  Time Complexity  = O(N)  and Space Complexity = O(1)
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
+
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+
+#     def deleteMid(self, head):
+
+#         # Empty list or single node
+#         if head is None or head.next is None:
+#             return None
+
+#         slow = head
+#         fast = head
+#         prev = None
+
+#         while fast is not None and fast.next is not None:
+
+#             prev = slow
+#             slow = slow.next
+#             fast = fast.next.next
+
+#         # Delete middle node
+#         prev.next = slow.next
+
+#         return head
+
+
+# # Create linked list
+
+# l = LinkedList()
+
+# l.head = Node(1)
+# l.head.next = Node(2)
+# l.head.next.next = Node(4)
+# l.head.next.next.next = Node(5)
+# l.head.next.next.next.next = Node(2)
+
+
+# # Delete middle node
+
+# result = l.deleteMid(l.head)
+
+
+# # Print linked list
+
+# temp = result
+
+# while temp is not None:
+#     print(temp.val, end=" -> ")
+#     temp = temp.next
+
+# print("None")
+
+
+           #Leetcode:
+
 class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
+        self.prev = None
 
 
 class LinkedList:
     def __init__(self):
         self.head = None
 
-    def deleteMid(self, head):
+    def removeDoublicate(self, head):
+        temp = head
 
-        # Empty list or single node
-        if head is None or head.next is None:
-            return None
+        while temp != None and temp.next != None:
 
-        slow = head
-        fast = head
-        prev = None
+            nextNode = temp.next
 
-        while fast is not None and fast.next is not None:
+            while nextNode != None and nextNode.val == temp.val:
+                nextNode = nextNode.next
 
-            prev = slow
-            slow = slow.next
-            fast = fast.next.next
+            temp.next = nextNode
 
-        # Delete middle node
-        prev.next = slow.next
+            if nextNode != None:
+                nextNode.prev = temp
+
+            temp = temp.next
 
         return head
 
 
-# Create linked list
-
 l = LinkedList()
 
 l.head = Node(1)
-l.head.next = Node(2)
-l.head.next.next = Node(4)
-l.head.next.next.next = Node(5)
-l.head.next.next.next.next = Node(2)
+
+l.head.next = Node(1)
+l.head.next.prev = l.head
+
+l.head.next.next = Node(1)
+l.head.next.next.prev = l.head.next
+
+l.head.next.next.next = Node(2)
+l.head.next.next.next.prev = l.head.next.next
+
+l.head.next.next.next.next = Node(3)
+l.head.next.next.next.next.prev = l.head.next.next.next
+
+l.head.next.next.next.next.next = Node(3)
+l.head.next.next.next.next.next.prev = l.head.next.next.next.next
+
+l.head.next.next.next.next.next.next = Node(4)
+l.head.next.next.next.next.next.next.prev = l.head.next.next.next.next.next
 
 
-# Delete middle node
 
-result = l.deleteMid(l.head)
+result = l.removeDoublicate(l.head)
 
-
-# Print linked list
 
 temp = result
 
-while temp is not None:
-    print(temp.val, end=" -> ")
+while temp != None:
+    print(temp.val, end=" <-> ")
     temp = temp.next
 
 print("None")
+

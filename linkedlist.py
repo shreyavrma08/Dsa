@@ -202,7 +202,7 @@
 #         temp1 = head1
 
 #         while temp1 is not None:
-#             # FIX 2: val, not data
+#             
 #             arr.append(temp1.val)
 #             temp1 = temp1.next
 
@@ -210,7 +210,7 @@
 #         temp2 = head2
 
 #         while temp2 != None:
-#             # FIX 4: append(), not add()
+#             
 #             arr.append(temp2.val)
 #             temp2 = temp2.next
 
@@ -241,7 +241,6 @@
 
 # l2.head = Node(1)
 
-# # FIX 6: l2.head.next, NOT l1.head.next
 # l2.head.next = Node(3)
 
 # l2.head.next.next = Node(3)
@@ -268,70 +267,215 @@
 # print("None")
 
 
-#Optimal   Time Complexity  = O(N + M)      Space Complexity = O(1)
+# #Optimal   Time Complexity  = O(N + M)      Space Complexity = O(1)
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
+
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+
+#     def mergeLL(self, head1, head2):
+#         t1 = head1
+#         t2 = head2
+
+#         dNode = Node(-1)  # FIXED
+#         temp = dNode
+
+#         while t1 != None and t2 != None:
+
+#             if t1.val < t2.val:
+#                 temp.next = t1
+#                 temp = t1
+#                 t1 = t1.next
+
+#             else:
+#                 temp.next = t2
+#                 temp = t2
+#                 t2 = t2.next
+
+#         if t1:
+#             temp.next = t1
+#         else:
+#             temp.next = t2
+
+#         return dNode.next  # FIXED
+
+
+# l1 = LinkedList()
+
+# l1.head = Node(2)
+# l1.head.next = Node(4)
+# l1.head.next.next = Node(8)
+# l1.head.next.next.next = Node(10)
+
+
+# l2 = LinkedList()
+
+# l2.head = Node(1)
+# l2.head.next = Node(3)
+# l2.head.next.next = Node(3)
+# l2.head.next.next.next = Node(6)
+# l2.head.next.next.next.next = Node(11)
+# l2.head.next.next.next.next.next = Node(14)
+
+
+# # Merge
+
+# l = LinkedList()
+
+# result = l.mergeLL(l1.head, l2.head)
+
+
+# # Print result
+
+# temp = result
+
+# while temp != None:
+#     print(temp.val, end=" -> ")
+#     temp = temp.next
+
+# print("None")
+
+#Leetcode:
+
+#brute:
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
+#         self.prev=None
+#         self.child=None
+
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+
+#     def flattening_LL(self, head1):
+#         arr=[]
+#         temp=self.head
+#         while temp != None:
+#             t2=temp
+#             while (t2 !=None):
+#                 arr.append(t2.val)
+#                 t2=t2.child
+#             temp=temp.next
+#             arr.sort()
+#         #onvert array into Linkedlist
+#         head = Node(arr[0])
+#         temp = head
+
+#         for i in range(1, len(arr)):
+#             temp.next = Node(arr[i])
+#             temp = temp.next
+            
+
+#         return head
+
 class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
+        self.prev = None
+        self.child = None
 
 
 class LinkedList:
     def __init__(self):
         self.head = None
 
-    def mergeLL(self, head1, head2):
-        t1 = head1
-        t2 = head2
+    def flattening_LL(self, head1):
 
-        dNode = Node(-1)  # FIXED
-        temp = dNode
+        arr = []
 
-        while t1 != None and t2 != None:
+        temp = head1
 
-            if t1.val < t2.val:
-                temp.next = t1
-                temp = t1
-                t1 = t1.next
+        while temp != None:
 
-            else:
-                temp.next = t2
-                temp = t2
+            # Store main list value
+            arr.append(temp.val)
+
+            # Store child list values
+            t2 = temp.child
+
+            while t2 != None:
+                arr.append(t2.val)
                 t2 = t2.next
 
-        if t1:
-            temp.next = t1
-        else:
-            temp.next = t2
+            temp = temp.next
 
-        return dNode.next  # FIXED
+        # Convert array into linked list
 
+        if len(arr) == 0:
+            return None
 
-l1 = LinkedList()
+        head = Node(arr[0])
+        temp = head
 
-l1.head = Node(2)
-l1.head.next = Node(4)
-l1.head.next.next = Node(8)
-l1.head.next.next.next = Node(10)
+        for i in range(1, len(arr)):
 
+            newNode = Node(arr[i])
 
-l2 = LinkedList()
+            temp.next = newNode
+            newNode.prev = temp
 
-l2.head = Node(1)
-l2.head.next = Node(3)
-l2.head.next.next = Node(3)
-l2.head.next.next.next = Node(6)
-l2.head.next.next.next.next = Node(11)
-l2.head.next.next.next.next.next = Node(14)
+            temp = temp.next
+
+        return head
 
 
-# Merge
+# --------------------------------
+# Create Main Linked List
+# --------------------------------
 
 l = LinkedList()
 
-result = l.mergeLL(l1.head, l2.head)
+l.head = Node(1)
+
+l.head.next = Node(2)
+l.head.next.prev = l.head
+
+l.head.next.next = Node(3)
+l.head.next.next.prev = l.head.next
+
+l.head.next.next.next = Node(4)
+l.head.next.next.next.prev = l.head.next.next
 
 
-# Print result
+# --------------------------------
+# Create Child Linked List
+# --------------------------------
+
+child1 = Node(7)
+
+child1.next = Node(8)
+child1.next.prev = child1
+
+child1.next.next = Node(9)
+child1.next.next.prev = child1.next
+
+
+# --------------------------------
+# Connect Child List to Node 3
+# --------------------------------
+
+l.head.next.next.child = child1
+
+
+# --------------------------------
+# Flatten Linked List
+# --------------------------------
+
+result = l.flattening_LL(l.head)
+
+
+# --------------------------------
+# Print Flattened Linked List
+# --------------------------------
 
 temp = result
 

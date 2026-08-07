@@ -340,15 +340,16 @@
 
 # print("None")
 
-#Leetcode:
+# #Leetcode:430  Flattening a linkedlist
 
-#brute:
+# #brute: Time Complexity  = O(N log N)   Space Complexity = O(N)
+
 # class Node:
 #     def __init__(self, val):
 #         self.val = val
 #         self.next = None
-#         self.prev=None
-#         self.child=None
+#         self.prev = None
+#         self.child = None
 
 
 # class LinkedList:
@@ -356,26 +357,74 @@
 #         self.head = None
 
 #     def flattening_LL(self, head1):
-#         arr=[]
-#         temp=self.head
+
+#         arr = []
+
+#         temp = head1
+
 #         while temp != None:
-#             t2=temp
-#             while (t2 !=None):
+
+#             # Store main list value
+#             arr.append(temp.val)
+
+#             # Store child list values
+#             t2 = temp.child
+
+#             while t2 != None:
 #                 arr.append(t2.val)
-#                 t2=t2.child
-#             temp=temp.next
-#             arr.sort()
-#         #onvert array into Linkedlist
+#                 t2 = t2.next
+
+#             temp = temp.next
+#         arr.sort()
+
+#         # Convert array into linked list
+
+#         if len(arr) == 0:
+#             return None
+
 #         head = Node(arr[0])
 #         temp = head
 
 #         for i in range(1, len(arr)):
-#             temp.next = Node(arr[i])
+
+#             newNode = Node(arr[i])
+
+#             temp.next = newNode
+#             newNode.prev = temp
+
 #             temp = temp.next
-            
 
 #         return head
+# l = LinkedList()
 
+# l.head = Node(3)
+# l.head.next = Node(2)
+# l.head.next.next = Node(1)
+# l.head.next.next.next = Node(4)
+# l.head.next.next.next.next=Node(5)
+
+# child1=Node(10)
+# l.head.next.child=child1
+# child2=Node(7)
+# child2.next=Node(11)
+# child2.next.next=Node(12)
+# l.head.next.next.child=child2
+# child3=Node(9)
+# l.head.next.next.next.child=child3
+# child4=Node(6)
+# child4.next=Node(8)
+# l.head.next.next.next.next.child=child4
+# # Flatten
+# result = l.flattening_LL(l.head)
+
+# # Print in vertical form
+# temp = result
+
+# while temp != None:
+#     print(temp.val)
+#     temp = temp.next
+
+#optimal     tc=       sc= 
 class Node:
     def __init__(self, val):
         self.val = val
@@ -389,98 +438,5 @@ class LinkedList:
         self.head = None
 
     def flattening_LL(self, head1):
-
-        arr = []
-
-        temp = head1
-
-        while temp != None:
-
-            # Store main list value
-            arr.append(temp.val)
-
-            # Store child list values
-            t2 = temp.child
-
-            while t2 != None:
-                arr.append(t2.val)
-                t2 = t2.next
-
-            temp = temp.next
-
-        # Convert array into linked list
-
-        if len(arr) == 0:
-            return None
-
-        head = Node(arr[0])
-        temp = head
-
-        for i in range(1, len(arr)):
-
-            newNode = Node(arr[i])
-
-            temp.next = newNode
-            newNode.prev = temp
-
-            temp = temp.next
-
-        return head
-
-
-# --------------------------------
-# Create Main Linked List
-# --------------------------------
-
-l = LinkedList()
-
-l.head = Node(1)
-
-l.head.next = Node(2)
-l.head.next.prev = l.head
-
-l.head.next.next = Node(3)
-l.head.next.next.prev = l.head.next
-
-l.head.next.next.next = Node(4)
-l.head.next.next.next.prev = l.head.next.next
-
-
-# --------------------------------
-# Create Child Linked List
-# --------------------------------
-
-child1 = Node(7)
-
-child1.next = Node(8)
-child1.next.prev = child1
-
-child1.next.next = Node(9)
-child1.next.next.prev = child1.next
-
-
-# --------------------------------
-# Connect Child List to Node 3
-# --------------------------------
-
-l.head.next.next.child = child1
-
-
-# --------------------------------
-# Flatten Linked List
-# --------------------------------
-
-result = l.flattening_LL(l.head)
-
-
-# --------------------------------
-# Print Flattened Linked List
-# --------------------------------
-
-temp = result
-
-while temp != None:
-    print(temp.val, end=" -> ")
-    temp = temp.next
-
-print("None")
+        def merge2list(list1,list2)
+            dummyNode=newNode(-1):

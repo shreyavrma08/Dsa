@@ -424,7 +424,7 @@
 #     print(temp.val)
 #     temp = temp.next
 
-#optimal     tc=       sc= 
+#hwen we have to merge two linkedkist    tc=  O(N²)     sc= O(N)
 class Node:
     def __init__(self, val):
         self.val = val
@@ -438,5 +438,95 @@ class LinkedList:
         self.head = None
 
     def flattening_LL(self, head1):
-        def merge2list(list1,list2)
-            dummyNode=newNode(-1):
+
+        # Merge two child-linked lists
+        def merge2list(list1, list2):
+
+            dummyNode = Node(-1)
+            result = dummyNode
+
+            while list1 is not None and list2 is not None:
+
+                if list1.val < list2.val:
+                    result.child = list1
+                    result = list1
+                    list1 = list1.child
+
+                else:
+                    result.child = list2
+                    result = list2
+                    list2 = list2.child
+
+            if list1 is not None:
+                result.child = list1
+            else:
+                result.child = list2
+
+            return dummyNode.child
+
+        # Create a child-linked list containing
+        # the main nodes first
+        main_head = Node(head1.val)
+        main_temp = main_head
+
+        temp = head1.next
+
+        while temp is not None:
+            newNode = Node(temp.val)
+            main_temp.child = newNode
+            main_temp = newNode
+            temp = temp.next
+
+        # Merge each child list
+        temp = head1
+
+        while temp is not None:
+
+            if temp.child is not None:
+                main_head = merge2list(main_head, temp.child)
+
+            temp = temp.next
+
+        return main_head
+
+
+# -------------------------
+# Create main list
+# -------------------------
+
+l = LinkedList()
+
+l.head = Node(4)
+l.head.next = Node(5)
+
+
+# Child of 4
+
+child3 = Node(9)
+l.head.child = child3
+
+
+# Child of 5
+
+child4 = Node(6)
+child4.child= Node(8)
+
+l.head.next.child = child4
+
+
+# -------------------------
+# Flatten
+# -------------------------
+
+result = l.flattening_LL(l.head)
+
+
+# -------------------------
+# Print vertically
+# -------------------------
+
+temp = result
+
+while temp is not None:
+    print(temp.val)
+    temp = temp.child

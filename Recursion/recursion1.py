@@ -33,7 +33,17 @@ def isPalindrome(s):
 s="anbcddcbna"
 print(isPalindrome(s))
 
-#Check string is palindrome using while loop
+#Check string is palindrome using while recursion
+def isPalindrome(s,left,right):
+    
+    if left>=right:
+        return True
+    if s[left] != s[right]:
+        return False
+    return isPalindrome(s,left+1,right-1)
+s="anbcddcbna"
+print(isPalindrome(s,0,len(s)-1))
+
 
 
 

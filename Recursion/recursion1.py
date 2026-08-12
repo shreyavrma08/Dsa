@@ -84,4 +84,14 @@ def isPalindrome(s, left, right):
 s = "mAdam"
 
 print(isPalindrome(s, 0, len(s) - 1))
+
+
+#Find the fibonacci of a number
+def func(num):
+    if num==0 or num==1:
+        return num
+    return func(num-1) + func(num-2)
+num=9
+print(func(num))
+
       

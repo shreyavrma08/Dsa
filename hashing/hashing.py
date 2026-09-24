@@ -95,6 +95,34 @@ result = longest_consecutive(test_numbers)
 print(f"The length of the longest consecutive sequence is: {result}")
 
 
+#LOngest consecutive sequencce tc=O(n)   and sc=o(n#)
+def largest_zero_sum(nums):
+    hash_map = {}
+    sum = 0
+    longest = 0
+
+    for i in range(len(nums)):
+        sum += nums[i]
+
+        if sum == 0:
+            longest = i + 1
+
+        elif sum in hash_map:
+            length = i - hash_map[sum]
+
+            if length > longest:
+                longest = length
+
+        else:
+            hash_map[sum] = i
+
+    return longest
+
+
+nums = [15, -2, 2, -8, 1, 7, 10, 23]
+
+print(largest_zero_sum(nums))
+
 
 
 

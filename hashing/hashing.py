@@ -22,7 +22,7 @@ for i in range(len(num)):
     hash_table[num[i]]=i
 print()
 
-
+#Leetcode 18 4Sum TC=O(n^3)        Sc=(1)
 def fourSum(nums,target):
     nums.sort()
     result=[]
@@ -62,6 +62,40 @@ nums = [4,3,3,4,4,2,1,2,1,1]
 target = 9
 
 print(fourSum(nums, target))
+
+
+#Leetcode 128 LOngest consecutive 
+def longest_consecutive(nums):
+    num_set = set(nums)
+    longest_streak = 0
+
+    for num in num_set:
+        if num - 1 not in num_set:
+            current_num = num
+            current_streak = 1
+
+            while current_num + 1 in num_set:
+                current_num += 1
+                current_streak += 1
+
+            longest_streak = max(longest_streak, current_streak)
+
+    return longest_streak
+
+
+# --- Example Function Call ---
+
+# Sample list: The longest sequence here is, which has a length of 4
+test_numbers = [100, 4, 200, 1, 3, 2]
+
+# Call the function and save the result
+result = longest_consecutive(test_numbers)
+
+# Print the result to the console
+print(f"The length of the longest consecutive sequence is: {result}")
+
+
+
 
 
        

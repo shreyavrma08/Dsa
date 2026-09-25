@@ -105,6 +105,7 @@ def largest_zero_sum(nums):
         sum += nums[i]
 
         if sum == 0:
+            #
             longest = i + 1
 
         elif sum in hash_map:

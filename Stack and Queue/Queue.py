@@ -18,3 +18,5 @@ print(q.delete())
 print(q.delete())
 print(q.delete())
 q.delete()
+1
+2

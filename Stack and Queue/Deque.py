@@ -35,3 +35,12 @@ print(dq.deleteAtFront())
 print(dq.deleteAtEnd())
 dq.deleteAtEnd()
 dq.deleteAtFront()
+123
+rsyryu
+sdghfirytas
+
+adfsdgfj
+weadsfxh
+dszdgxfh
+qwresrt
+fdfhhhhhhhhhhhhhhhh

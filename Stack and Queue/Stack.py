@@ -83,3 +83,7 @@ print(f"Popped item ={stack.pop()}")
 print(f"Stack content={stack}")
 print(f"Top item after pop={stack.top()}")
 print(f"Stack is empty = {stack.is_empty()}")
+
+1
+2
+4

@@ -86,4 +86,4 @@ print(f"Stack is empty = {stack.is_empty()}")
 
 1
 2
-4
+4GHGVJMG

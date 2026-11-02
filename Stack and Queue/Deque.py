@@ -35,4 +35,3 @@ print(dq.deleteAtFront())
 print(dq.deleteAtEnd())
 dq.deleteAtEnd()
 dq.deleteAtFront()
-fjhgj

@@ -1,3 +1,5 @@
+                           #Chai and code
+
 class Deque:
     def __init__(self):
         self.items=[]
@@ -35,3 +37,29 @@ print(dq.deleteAtFront())
 print(dq.deleteAtEnd())
 dq.deleteAtEnd()
 dq.deleteAtFront()
+
+
+
+
+
+
+
+
+
+
+                   #Code and debug
+
+from collections import deque
+lst=deque([])
+lst.append(100)
+lst.append(200)
+lst.append(300)
+lst.appendleft(1)
+lst.appendleft(9)
+print(lst)
+print(lst[0])
+print(lst[1])
+lst.pop()
+print(lst)
+lst.popleft()
+print(lst)

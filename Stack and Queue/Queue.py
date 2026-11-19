@@ -74,3 +74,14 @@ print("Front:", q.front())
 print("Rear:", q.rear())
 
 print("Is Empty:", q.is_empty())
+
+
+#Empty quese test cases
+q = Queue()
+
+print(q.is_empty())  # True
+print(q.size())      # 0
+
+print(q.dequeue())   # dequeue from empty queue
+print(q.front())     # Cannot peek, queue is empty
+print(q.rear())      # Should handle empty queue safely
